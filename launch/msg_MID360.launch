@@ -1,4 +1,5 @@
 <launch>
+	<arg name="robot_namespace" default="robot"/>
 
 	<!--user configure parameters for ros start-->
 	<arg name="lvx_file_path" default="livox_test.lvx"/>
@@ -30,7 +31,7 @@
 
 	<node name="livox_lidar_publisher2" pkg="livox_ros_driver2"
 	      type="livox_ros_driver2_node" required="true"
-	      output="screen" args="$(arg cmdline_arg)"/>
+	      output="log" args="$(arg cmdline_arg)"/>
 
 	<group if="$(arg rosbag_enable)">
     	<node pkg="rosbag" type="record" name="record" output="screen"
